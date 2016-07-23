@@ -1,18 +1,21 @@
 //  --- GENERATORS ---
 
 // 1. quiz generator
-function* quiz(count=5){
+function* quiz(count=Infinity){
    let results = {};
+   let defaultQ = 'Question';
    let i = 0;
    while (++i && count >= i ) {
-     results[`Answer #${i}`] = prompt(`Question #${i}`);
-     yield results
+     let q = yield results;
+     results[`${i}.${q||defaultQ}`] = prompt(`${i}. ${q||defaultQ}`);
    }
 }
-let quizGenerator = quiz(10);
+var quizGenerator = quiz(5);
 
-// var results = quizGenerator.next().value; // ...
+quizGenerator.next();// start
+
+var results = quizGenerator.next('Your question').value; // ...
 // or call all synchronously, like:
-for (var results of quizGenerator ) {}
+//for (var results of quizGenerator ) {}
 
 console.info("results\n", results)
