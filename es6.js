@@ -25,8 +25,6 @@ console.info("results\n", results)
 
 
 
-
-
 class ObjectIterator {
 	
 	constructor (params) {
@@ -70,6 +68,6 @@ const o = {
 	foo:2,
 	bar:3,
 };
-console.log([...o]);
-makeIterable(obj);
+// console.log([...o]);
+makeIterable(o);
 console.log([...o]);
