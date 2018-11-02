@@ -9,7 +9,7 @@
  *  };
  *  console.log([...o]); // -- this will thrown error
  *  ObjectIterator.makeIterable(o);
- *  console.log([...o]); // -- this will print array or {key: string, value: any}
+ *  console.log([...o]); // -- this will print array of {key: string, value: any}
  */
 class ObjectIterator {
   constructor (params) {
