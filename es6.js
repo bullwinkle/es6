@@ -1,6 +1,15 @@
 /**
  * @description This is Iterable objects constructor. Returns an object, that can be
- *  iterated with for...of or spread operator.. 
+ *  iterated with for...of or spread operator..
+ *
+ * @example
+ *  const o = {
+ *    foo: 2,
+ *    bar: 3,
+ *  };
+ *  console.log([...o]); // -- this will thrown error
+ *  ObjectIterator.makeIterable(o);
+ *  console.log([...o]); // -- this will print array or {key: string, value: any}
  */
 class ObjectIterator {
   constructor (params) {
@@ -44,33 +53,23 @@ class ObjectIterator {
   }
 }
 
-// usage
-const o = {
-  foo: 2,
-  bar: 3,
-};
-// console.log([...o]); // -- this will throw error
-ObjectIterator.makeIterable(o);
-console.log([...o]); // -- this will print array or {key: string, value: any}
-
 
 
 
 /**
  * @description This is async queue automatic handler;
+ *
+ * @param options Object
+ *  - [handleBy] Number : count to handle tasks by.
+ *    - 0 is not aloud;
+ *    - if negative will handle by all tasks in one tick; 
+ *
  * @example 
  *  const queue = new AsyncQueue();
  *  queue.subscribe( it => console.log(it));
  *  queue.push(1,2,3,4,5);
  */
 class AsyncQueue extends Array {
-  /**
-   *
-   * @param options Object
-   *  - [handleBy] Number : count to handle tasks by.
-   *    - 0 is not aloud;
-   *    - if negative will handle by all tasks in one tick;
-   */
   constructor (options) {
     super();
 
